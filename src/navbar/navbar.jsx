@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./navbar.css";
 import logo from "../assets/pictures/logo.png";
 import { useNavigate } from "react-router-dom";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -34,9 +34,7 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <div className="logo">
-          logo
-        </div>
+        <div className="logo">logo</div>
         <ul className="nav-list">
           <li>home</li>
           <li>men</li>
@@ -69,7 +67,6 @@ const Navbar = () => {
           <button className="button" onClick={handleSubmit}>
             Add
           </button>
-          
         </div>
       )}
       <Table striped bordered hover>
@@ -78,21 +75,24 @@ const Navbar = () => {
             <th>Task</th>
             <th>Action</th>
           </tr>
-          </thead>
-          <tbody>
-        {tasks.map((item, index) => (
-          <tr>
-          <td key={index}>{item}</td>
-           <td> <button className="button"onClick={()=> setTasks(tasks.filter((_, i) => i !== index))}>
-            Delete</button> </td>
+        </thead>
+        <tbody>
+          {tasks.map((item, index) => (
+            <tr>
+              <td key={index}>{item}</td>
+              <td>
+                {" "}
+                <button
+                  className="button"
+                  onClick={() => setTasks(tasks.filter((_, i) => i !== index))}
+                >
+                  Delete
+                </button>{" "}
+              </td>
             </tr>
-            
-        
-          
-        ))}
+          ))}
         </tbody>
       </Table>
-      
     </>
   );
 };
